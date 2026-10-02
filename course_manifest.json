@@ -1,0 +1,72 @@
+[
+  {
+    "day": 1,
+    "title": "Program Flow and Console IO",
+    "folder": "Day_01_Program_Flow_and_Console_IO"
+  },
+  {
+    "day": 2,
+    "title": "Types Parsing and Money",
+    "folder": "Day_02_Types_Parsing_and_Money"
+  },
+  {
+    "day": 3,
+    "title": "Decisions and Validation",
+    "folder": "Day_03_Decisions_and_Validation"
+  },
+  {
+    "day": 4,
+    "title": "Loops and Accumulation",
+    "folder": "Day_04_Loops_and_Accumulation"
+  },
+  {
+    "day": 5,
+    "title": "Methods and Decomposition",
+    "folder": "Day_05_Methods_and_Decomposition"
+  },
+  {
+    "day": 6,
+    "title": "Lists and Dictionaries",
+    "folder": "Day_06_Lists_and_Dictionaries"
+  },
+  {
+    "day": 7,
+    "title": "Classes and Objects",
+    "folder": "Day_07_Classes_and_Objects"
+  },
+  {
+    "day": 8,
+    "title": "Encapsulation and Interfaces",
+    "folder": "Day_08_Encapsulation_and_Interfaces"
+  },
+  {
+    "day": 9,
+    "title": "Exceptions and Debugging",
+    "folder": "Day_09_Exceptions_and_Debugging"
+  },
+  {
+    "day": 10,
+    "title": "LINQ and Data Transformations",
+    "folder": "Day_10_LINQ_and_Data_Transformations"
+  },
+  {
+    "day": 11,
+    "title": "Files JSON and Async",
+    "folder": "Day_11_Files_JSON_and_Async"
+  },
+  {
+    "day": 12,
+    "title": "Testing and Git Habits",
+    "folder": "Day_12_Testing_and_Git_Habits"
+  },
+  {
+    "day": 13,
+    "title": "Database Design and Normalization",
+    "folder": "Day_13_Database_Design_and_Normalization"
+  },
+  {
+    "day": 14,
+    "title": "Capstone Job Application Tracker",
+    "folder": "Day_14_Capstone_Job_Application_Tracker"
+  }
+]
