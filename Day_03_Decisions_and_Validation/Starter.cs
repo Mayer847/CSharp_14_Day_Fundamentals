@@ -10,12 +10,12 @@ if (!int.TryParse(Console.ReadLine(), out int match) || match is < 0 or > 100) /
 
 Console.Write("Remote? (yes/no): ");
 
-String remoteText = Console.ReadLine()?.Trim().ToLowerInvariant() ?? "";
+string remoteText = Console.ReadLine()?.Trim().ToLowerInvariant() ?? "";
 if (remoteText is not ("yes" or "no"))
 {
     Console.WriteLine("Please, type 'yes' or 'no'!");
     return;
 }
-String priority = remoteText == "yes" && match >= 80 ? "High" : match >= 65 ? "Medium" : "Skip";
+string priority = remoteText == "yes" && match >= 80 ? "High" : match >= 65 ? "Medium" : "Skip";
 
 Console.WriteLine($"Priority: {priority}");
