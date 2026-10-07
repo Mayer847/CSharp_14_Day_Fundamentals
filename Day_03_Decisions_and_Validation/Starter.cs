@@ -1,42 +1,21 @@
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 
 Console.Write("Match percentage: ");
-string? matchInput = Console.ReadLine();
-
-
-// TODO: parse and validate percentage.
-if (!int.TryParse(matchInput, out int matchPercentage) && String.IsNullOrWhiteSpace(remoteInput)) //this is not working with empty and numbers
+if (!int.TryParse(Console.ReadLine(), out int match) || match is < 0 or > 100) //this is not working with empty and numbers
 {
-    Console.WriteLine("Please, enter a valid input!");
+    Console.WriteLine("Percentage must be between 0 and 100");
     return;
 }
+
 Console.Write("Remote? (yes/no): ");
-string? remoteInput = Console.ReadLine();
-if (matchPercentage > 100 || matchPercentage < 0)
-{
-    Console.WriteLine("Please, enter a valid percentage!");
-    return;
-}
-String remoteInputNormalized = remoteInput.ToLower();
-if (remoteInputNormalized.StartsWith('y') || remoteInputNormalized.StartsWith('Y'))
-{
-    remoteInputNormalized = "yes";
-}
-else
-{
-    remoteInputNormalized = "no";
-}
 
-if (matchPercentage >= 80 && String.Equals(remoteInputNormalized, "yes"))
+String remoteText = Console.ReadLine()?.Trim().ToLowerInvariant() ?? "";
+if (remoteText is not ("yes" or "no"))
 {
-    Console.WriteLine("High");
+    Console.WriteLine("Please, type 'yes' or 'no'!");
     return;
 }
-if (matchPercentage >= 65)
-{
-    Console.WriteLine("Medium");
-    return;
-}
-Console.WriteLine("Skip");
-// TODO: normalize yes/no.
-// TODO: calculate priority.
+String priority = remoteText == "yes" && match >= 80 ? "High" : match >= 65 ? "Medium" : "Skip";
+
+Console.WriteLine($"Priority: {priority}");
