@@ -1,6 +1,5 @@
 //Create a skill tracker. Add skill names and confidence from 1 to 5 to a dictionary. Print all skills and the weakest skill.
 //If a skill is entered twice, update it instead of crashing.
-using System.Runtime.CompilerServices;
 
 var skills = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 
@@ -11,38 +10,45 @@ var skills = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 
 while (true)
 {
-    Console.Write("New skill name or done:");
-    string skillName = Console.ReadLine()?.Trim().ToLowerInvariant() ?? "";
-    if (skillName is "")
+    Console.Write("Skill name or done:");
+    string skillName = Console.ReadLine()?.Trim() ?? "";
+    if (skillName.Equals("done", StringComparison.OrdinalIgnoreCase)) break;
+
+    if (string.IsNullOrWhiteSpace(skillName))
     {
         Console.WriteLine("Please enter valid skill name or done");
         continue;
     }
-    if (skillName == "done") break;
-    if (!int.TryParse(Console.ReadLine(), out int confidence) || confidence is < 1 or > 5)
+
+    int confidence;
+    while (true)
     {
+        Console.Write("Confidence Level 1-5: ");
+        if (int.TryParse(Console.ReadLine(), out int confidence) || confidence is >= 1 or <= 5)
+        {
+            break;
+        }
         Console.WriteLine("Please enter confidence between 1 - 5");
-        continue;
     }
-    if (skills.ContainsKey(skillName))
-    {
-        skills[skillName] = confidence;
-        continue;
-    }
-    skills.Add(skillName, confidence);
+    skills[skillName] = confidence;
+
 }
 
-int count = skills.Count;
-var weakestSkills = Dictionary<string, int>();
-string weakestSkillName = "";
-int weakestSkillConfidence = 0;
-while (count > 0)
+
+// bool flag = false;
+
+foreach (var (skillName, confidence) in skills.OrderBy(p => p.Key))
 {
-    if (skills[count] == 1)
-    {
-        weakestSkills =
-    }
-    Console.WriteLine(skills[count]);
-    count--;
+    Console.WriteLine($"{skillName}: {confidence}/5");
 }
+if (skills.Count > 0)
+{
+    Console.WriteLine("Weakest Skills:");
 
+    int minConfidence = skills.Min(p => p.Value);
+
+    foreach (var (skillName, confidence) in skills.Where(p => p.Value == minConfidence))
+    {
+        Console.WriteLine($"{skillName}: {confidence}/5");
+    }
+}
